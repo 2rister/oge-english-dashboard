@@ -130,4 +130,10 @@ input { font: inherit; }
   .save-menu { width: 100%; }
   .save-trigger { width: 100%; justify-content: space-between; }
   .save-dropdown { left: 0; right: auto; width: 100%; }
+  .stitle { display: block; font-size: 13px; }
+  .recs-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .rec { display: block; width: 100%; min-width: 0; padding: 12px 14px; overflow: visible; }
+  .rec h4 { font-size: 12px; margin-bottom: 7px; }
+  .rec ul { display: block; width: 100%; }
+  .rec ul li { display: block; width: 100%; font-size: 12px; line-height: 1.45; white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
 }

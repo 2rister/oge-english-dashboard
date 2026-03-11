@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog.
 
+## [1.0.1c] - 2026-03-11
+
+### Changed
+- Recommendation block now ignores empty task cells when reanalyzing solved variants, so missing data is no longer treated as an error.
+- Variant-based recommendations are now prioritized over generic section advice and ranked by repeated deficit severity across all solved workbook tests.
+- Standalone exported HTML was strengthened for tablet and mobile layouts, including better sticky navigation wrapping, one-column insights, and safer long-text overflow handling.
+- Mobile dashboard insight cards received stronger responsive rules so strengths, growth areas, trend, and recommendation blocks stay visible and readable on narrow screens.
+
 ## [1.0.1b] - 2026-03-11
 
 ### Added

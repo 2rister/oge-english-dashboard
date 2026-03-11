@@ -343,6 +343,10 @@ function buildTrendText(tests) {
 }
 
 function buildRecommendation(sections, variantInsights = emptyVariantInsights()) {
+  if (variantInsights.recommendations.length > 0) {
+    return variantInsights.recommendations.slice(0, 3).join(" ");
+  }
+
   const weakest = [...sections].sort((left, right) => left.averagePercent - right.averagePercent).slice(0, 2);
   const actions = [...variantInsights.recommendations, ...weakest.map((section) => recommendationFor(section.key))];
   return dedupeLines(actions).slice(0, 3).join(" ");
@@ -390,9 +394,14 @@ function buildTaskPercents(row, maximums) {
   const taskPercents = {};
   for (let taskNumber = 12; taskNumber <= 34; taskNumber += 1) {
     const columnIndex = taskNumber + 1;
+    const rawValue = stringValue(row[columnIndex]);
     const maxScore = numeric(maximums[columnIndex]);
+    if (!rawValue || maxScore <= 0) {
+      taskPercents[taskNumber] = null;
+      continue;
+    }
     const score = numeric(row[columnIndex]);
-    taskPercents[taskNumber] = maxScore > 0 ? round((score / maxScore) * 100, 2) : 100;
+    taskPercents[taskNumber] = round((score / maxScore) * 100, 2);
   }
   return taskPercents;
 }
@@ -407,58 +416,71 @@ function analyzeVariantInsights(tests) {
     return emptyVariantInsights();
   }
 
-  const readingTask12Variants = new Set();
-  const readingTfnsVariants = new Set();
-  const topicVariants = new Map();
+  const readingTask12 = { variants: new Set(), deficit: 0, hits: 0 };
+  const readingTfns = { variants: new Set(), deficit: 0, hits: 0 };
+  const topicStats = new Map();
 
   for (const test of solvedVariants) {
-    if ((test.taskPercents[12] || 100) < 100) {
-      readingTask12Variants.add(test.variantNumber);
+    const reading12Percent = test.taskPercents[12];
+    if (reading12Percent !== null && reading12Percent < 100) {
+      readingTask12.variants.add(test.variantNumber);
+      readingTask12.deficit += 100 - reading12Percent;
+      readingTask12.hits += 1;
     }
 
     for (let taskNumber = 13; taskNumber <= 19; taskNumber += 1) {
-      if ((test.taskPercents[taskNumber] || 100) < 100) {
-        readingTfnsVariants.add(test.variantNumber);
+      const percent = test.taskPercents[taskNumber];
+      if (percent !== null && percent < 100) {
+        readingTfns.variants.add(test.variantNumber);
+        readingTfns.deficit += 100 - percent;
+        readingTfns.hits += 1;
       }
     }
 
     for (let taskNumber = 20; taskNumber <= 34; taskNumber += 1) {
-      if ((test.taskPercents[taskNumber] || 100) >= 100) {
+      const percent = test.taskPercents[taskNumber];
+      if (percent === null || percent >= 100) {
         continue;
       }
       const topic = TASK_TOPIC_MAP[taskNumber];
       if (!topic) {
         continue;
       }
-      const variants = topicVariants.get(topic) || new Set();
-      variants.add(test.variantNumber);
-      topicVariants.set(topic, variants);
+      const stats = topicStats.get(topic) || { variants: new Set(), deficit: 0, hits: 0 };
+      stats.variants.add(test.variantNumber);
+      stats.deficit += 100 - percent;
+      stats.hits += 1;
+      topicStats.set(topic, stats);
     }
   }
 
   const growthAreas = [];
   const recommendations = [];
 
-  if (readingTask12Variants.size > 0) {
-    growthAreas.push(`Варианты ${formatVariantList(readingTask12Variants)}: чтение, задание 12 — сопоставление текстов и вопросов.`);
+  if (readingTask12.hits > 0) {
+    growthAreas.push(`Варианты ${formatVariantList(readingTask12.variants)}: чтение, задание 12 — сопоставление текстов и вопросов.`);
     recommendations.push("По вариантам сборника отдельно тренировать чтение задания 12: быстрое сопоставление вопросов с фрагментами текста.");
   }
 
-  if (readingTfnsVariants.size > 0) {
-    growthAreas.push(`Варианты ${formatVariantList(readingTfnsVariants)}: чтение, задания 13-19 — True / False / Not stated.`);
+  if (readingTfns.hits > 0) {
+    growthAreas.push(`Варианты ${formatVariantList(readingTfns.variants)}: чтение, задания 13-19 — True / False / Not stated.`);
     recommendations.push("По вариантам сборника отдельно тренировать чтение заданий 13-19: факты против домыслов и точные формулировки True / False / Not stated.");
   }
 
-  const rankedTopics = [...topicVariants.entries()].sort((left, right) => {
-    const sizeDiff = right[1].size - left[1].size;
-    if (sizeDiff !== 0) {
-      return sizeDiff;
+  const rankedTopics = [...topicStats.entries()].sort((left, right) => {
+    const deficitDiff = right[1].deficit - left[1].deficit;
+    if (deficitDiff !== 0) {
+      return deficitDiff;
+    }
+    const hitDiff = right[1].hits - left[1].hits;
+    if (hitDiff !== 0) {
+      return hitDiff;
     }
     return left[0].localeCompare(right[0], "ru");
   });
 
-  for (const [topic, variants] of rankedTopics.slice(0, 4)) {
-    growthAreas.push(`Варианты ${formatVariantList(variants)}: ${topic}.`);
+  for (const [topic, stats] of rankedTopics.slice(0, 4)) {
+    growthAreas.push(`Варианты ${formatVariantList(stats.variants)}: ${topic}.`);
     recommendations.push(`По вариантам сборника повторить тему: ${topic}.`);
   }
 
