@@ -1,0 +1,17 @@
+.DS_Store
+.env
+.npm-cache/
+node_modules/
+dist/
+public/report-data.json
+pocketbase/pb_data/
+pocketbase/pocketbase
+pocketbase/CHANGELOG.md
+pocketbase/LICENSE.md
+*.log
+*.sqlite
+*.db
+*.db-shm
+*.db-wal
+*.xlsx
+
