@@ -66,10 +66,30 @@ async function main() {
     return;
   }
 
-  const token = await authenticate();
-  await verifyCollections(token);
-  await replaceCollection("student_results", dataset.results, token);
-  await replaceCollection("student_summaries", dataset.summaries, token);
+  let token = "";
+  try {
+    token = await authenticate();
+  } catch (error) {
+    throw new Error(`Authentication failed: ${error instanceof Error ? error.message : String(error)}`);
+  }
+
+  try {
+    await verifyCollections(token);
+  } catch (error) {
+    throw new Error(`Collection verification failed: ${error instanceof Error ? error.message : String(error)}`);
+  }
+
+  try {
+    await replaceCollection("student_results", dataset.results, token);
+  } catch (error) {
+    throw new Error(`student_results import failed: ${error instanceof Error ? error.message : String(error)}`);
+  }
+
+  try {
+    await replaceCollection("student_summaries", dataset.summaries, token);
+  } catch (error) {
+    throw new Error(`student_summaries import failed: ${error instanceof Error ? error.message : String(error)}`);
+  }
 
   console.log("PocketBase import completed.");
 }
@@ -335,21 +355,35 @@ async function verifyCollections(token) {
 }
 
 async function replaceCollection(collection, records, token) {
-  const existing = await listAll(collection, token);
+  let existing = [];
+  try {
+    existing = await listAll(collection, token);
+  } catch (error) {
+    throw new Error(`Failed to list ${collection}: ${error instanceof Error ? error.message : String(error)}`);
+  }
 
   for (const record of existing) {
-    await requestJson(`/api/collections/${collection}/records/${record.id}`, {
-      method: "DELETE",
-      token,
-    });
+    try {
+      await requestJson(`/api/collections/${collection}/records/${record.id}`, {
+        method: "DELETE",
+        token,
+      });
+    } catch (error) {
+      throw new Error(`Failed to delete ${collection}/${record.id}: ${error instanceof Error ? error.message : String(error)}`);
+    }
   }
 
   for (const record of records) {
-    await requestJson(`/api/collections/${collection}/records`, {
-      method: "POST",
-      token,
-      body: record,
-    });
+    try {
+      await requestJson(`/api/collections/${collection}/records`, {
+        method: "POST",
+        token,
+        body: record,
+      });
+    } catch (error) {
+      const identity = record.resultKey || record.studentKey || record.fullName || "unknown-record";
+      throw new Error(`Failed to create ${collection}/${identity}: ${error instanceof Error ? error.message : String(error)}`);
+    }
   }
 }
 
@@ -358,7 +392,7 @@ async function listAll(collection, token) {
   let page = 1;
 
   while (true) {
-    const response = await requestJson(`/api/collections/${collection}/records?page=${page}&perPage=200&sort=-created`, {
+    const response = await requestJson(`/api/collections/${collection}/records?page=${page}&perPage=200`, {
       method: "GET",
       token,
     });
