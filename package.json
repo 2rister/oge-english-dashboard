@@ -1,10 +1,11 @@
 {
   "name": "oge-english-dashboard",
-  "version": "1.0.1",
+  "version": "1.0.1b",
   "private": true,
   "type": "module",
   "scripts": {
     "build:data": "node scripts/generate-report-data.mjs",
+    "import:oge-materials": "python3 scripts/import-oge-materials.py",
     "refresh:reports": "node scripts/import-excel.mjs && node scripts/generate-report-data.mjs",
     "start": "node scripts/start-all.mjs",
     "stop": "node scripts/stop-services.mjs",

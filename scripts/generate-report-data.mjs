@@ -27,8 +27,8 @@ const PALETTE = [
 const SECTION_CONFIG = [
   { key: "listening", icon: "🎧", title: "Аудирование", slice: [2, 13], taskRange: "1-11" },
   { key: "reading", icon: "📖", title: "Чтение", slice: [13, 21], taskRange: "12-19" },
-  { key: "grammar", icon: "✏️", title: "Грамматика", slice: [21, 29], taskRange: "20-28" },
-  { key: "vocabulary", icon: "🔤", title: "Словообразование", slice: [29, 36], taskRange: "29-34" },
+  { key: "grammar", icon: "✏️", title: "Грамматика", slice: [21, 30], taskRange: "20-28" },
+  { key: "vocabulary", icon: "🔤", title: "Словообразование", slice: [30, 36], taskRange: "29-34" },
   { key: "writing", icon: "✍️", title: "Письмо", slice: [36, 37], taskRange: "-" },
 ];
 
@@ -39,6 +39,31 @@ const PART1_PERCENT_COL = 43;
 const PART2_SCORE_COL = 44;
 const PART2_PERCENT_COL = 45;
 const EXCLUDED_STUDENT_KEYS = new Set(["дугинец", "выступец_дарья"]);
+const TASK_TOPIC_MAP = {
+  12: "Чтение: сопоставление текстов и вопросов",
+  13: "Чтение: True / False / Not stated",
+  14: "Чтение: True / False / Not stated",
+  15: "Чтение: True / False / Not stated",
+  16: "Чтение: True / False / Not stated",
+  17: "Чтение: True / False / Not stated",
+  18: "Чтение: True / False / Not stated",
+  19: "Чтение: True / False / Not stated",
+  20: "Грамматика: Past Simple / степени сравнения / множественное число",
+  21: "Грамматика: Past Simple / отрицательные формы / Past Continuous",
+  22: "Грамматика: Passive Voice / степени сравнения / Past Simple",
+  23: "Грамматика: Past Simple / нестандартное множественное число / отрицание",
+  24: "Грамматика: Past Simple / степени сравнения / отрицательные формы",
+  25: "Грамматика: Present Perfect / местоимения / Past Simple",
+  26: "Грамматика: порядковые числительные / местоимения / отрицательные формы",
+  27: "Грамматика: Past Perfect / Past Simple / степени сравнения",
+  28: "Грамматика: Present Perfect / нестандартное множественное число",
+  29: "Словообразование: существительные (-tion / -ance / -ment / -er)",
+  30: "Словообразование: прилагательные (-ous / -ful / -al / -ive / -able)",
+  31: "Словообразование: существительные (-er / -or / -ist / -ness / -ion)",
+  32: "Словообразование: прилагательные (-able / -ful / -ous / -ive / -ing / -ed)",
+  33: "Словообразование: отрицательные префиксы (un- / im- / in-)",
+  34: "Словообразование: отрицательные префиксы (un- / im- / in- / dis- / ir-)",
+};
 
 const inputPath = resolveInputPath(cliFilePath);
 const outputDir = path.join(rootDir, "public");
@@ -101,6 +126,8 @@ function buildReportData(filePath) {
           shortLabel: shortLabel(sheetName),
           monthLabel: monthLabel(sheetName),
           isExam: sheetName.includes("ЭКЗАМЕН"),
+          variantNumber: extractVariantNumber(sheetName),
+          taskPercents: buildTaskPercents(row, maximums),
           hasData: true,
           part1Score: numeric(row[PART1_SCORE_COL]),
           part1Percent: numeric(row[PART1_PERCENT_COL]),
@@ -174,9 +201,10 @@ function buildReportData(filePath) {
         color: toneColor(avg),
       };
     });
+    const variantInsights = analyzeVariantInsights(filledTests);
     const strengths = buildStrengths(sectionAverages);
-    const growthAreas = buildGrowthAreas(sectionAverages, percents);
-    const recommendation = buildRecommendation(sectionAverages);
+    const growthAreas = buildGrowthAreas(sectionAverages, percents, variantInsights);
+    const recommendation = buildRecommendation(sectionAverages, variantInsights);
     const monthlyBars = buildMonthlyBars(filledTests);
 
     return {
@@ -260,29 +288,31 @@ function buildStrengths(sections) {
   return [`Лучший раздел: ${best.title} ${best.averagePercent.toFixed(1)}%`];
 }
 
-function buildGrowthAreas(sections, percents) {
+function buildGrowthAreas(sections, percents, variantInsights = emptyVariantInsights()) {
   const items = [];
-  sections.filter((s) => s.averagePercent < 70).forEach((s) => items.push(`Критично: ${s.title} ${Math.round(s.averagePercent)}%`));
+  sections.filter((s) => s.averagePercent < 70).forEach((s) => items.push(buildGrowthLine(s, "critical")));
   sections
     .filter((s) => s.averagePercent >= 70 && s.averagePercent < 85)
-    .forEach((s) => items.push(`Нестабильно: ${s.title} ${Math.round(s.averagePercent)}%`));
+    .forEach((s) => items.push(buildGrowthLine(s, "unstable")));
   if (items.length === 0) {
     const weakest = [...sections].sort((a, b) => a.averagePercent - b.averagePercent)[0];
-    items.push(`Потенциал роста: ${weakest.title} ${Math.round(weakest.averagePercent)}%`);
+    items.push(buildGrowthLine(weakest, "potential"));
   }
   if (percents.length > 1) {
     const spread = Math.max(...percents) - Math.min(...percents);
     if (spread >= 20) items.push(`Разброс ${Math.round(spread)}% между тестами`);
   }
-  return items;
+  return dedupeLines([...items, ...variantInsights.growthAreas]);
 }
 
-function buildRecommendation(sections) {
-  return [...sections]
+function buildRecommendation(sections, variantInsights = emptyVariantInsights()) {
+  return dedupeLines([
+    ...variantInsights.recommendations,
+    ...[...sections]
     .sort((a, b) => a.averagePercent - b.averagePercent)
     .slice(0, 2)
-    .map((section) => recommendationFor(section.key))
-    .join(" ");
+    .map((section) => recommendationFor(section.key)),
+  ]).slice(0, 3).join(" ");
 }
 
 function buildTrendText(firstPercent, latestPercent) {
@@ -304,14 +334,125 @@ function recommendationFor(sectionKey) {
     case "reading":
       return "Тренировать поиск фактов и matching с лимитом по времени на каждый текст.";
     case "grammar":
-      return "Повторить грамматические паттерны 20-28 и закрепить их на мини-тестах по 10 минут.";
+      return "Грамматика: сначала отработать Past Simple и неправильные глаголы, затем степени сравнения, Present/Past Perfect, Passive Voice, нестандартное множественное число и отрицательные формы.";
     case "vocabulary":
-      return "Усилить словообразование: суффиксы, приставки и отрицательные формы в карточках.";
+      return "Словообразование: закрепить существительные на -tion/-ance/-ment/-er, прилагательные на -ous/-ful/-al/-ive/-able и отрицательные префиксы un-/im-/in-/dis-.";
     case "writing":
       return "Раз в неделю писать письмо по шаблону и отдельно проверять критерии 2 части.";
     default:
       return "Сделать серию коротких тренировок по слабому разделу.";
   }
+}
+
+function buildGrowthLine(section, mode) {
+  const prefix = mode === "critical" ? "Критично" : mode === "unstable" ? "Нестабильно" : "Потенциал роста";
+  const score = `${Math.round(section.averagePercent)}%`;
+
+  switch (section.key) {
+    case "grammar":
+      return `${prefix}: ${section.title} ${score} — проверить Past Simple, степени сравнения, Perfect и Passive Voice.`;
+    case "vocabulary":
+      return `${prefix}: ${section.title} ${score} — проверить суффиксы существительных/прилагательных и отрицательные префиксы.`;
+    case "writing":
+      return `${prefix}: ${section.title} ${score} — письмо по шаблону, логика ответа и критерии части 2.`;
+    default:
+      return `${prefix}: ${section.title} ${score}`;
+  }
+}
+
+function extractVariantNumber(sheetName) {
+  const match = sheetName.match(/(?:^|\s)(\d+)\s*TEST\b/i);
+  return match ? Number.parseInt(match[1], 10) : 0;
+}
+
+function buildTaskPercents(row, maximums) {
+  const taskPercents = {};
+  for (let taskNumber = 12; taskNumber <= 34; taskNumber += 1) {
+    const columnIndex = taskNumber + 1;
+    const maxScore = numeric(maximums[columnIndex]);
+    const score = numeric(row[columnIndex]);
+    taskPercents[taskNumber] = maxScore > 0 ? round((score / maxScore) * 100, 1) : 100;
+  }
+  return taskPercents;
+}
+
+function emptyVariantInsights() {
+  return { growthAreas: [], recommendations: [] };
+}
+
+function analyzeVariantInsights(tests) {
+  const solvedVariants = tests.filter((test) => test.variantNumber > 0 && test.taskPercents);
+  if (solvedVariants.length === 0) {
+    return emptyVariantInsights();
+  }
+
+  const readingTask12Variants = new Set();
+  const readingTfnsVariants = new Set();
+  const topicVariants = new Map();
+
+  for (const test of solvedVariants) {
+    if ((test.taskPercents[12] || 100) < 100) {
+      readingTask12Variants.add(test.variantNumber);
+    }
+
+    for (let taskNumber = 13; taskNumber <= 19; taskNumber += 1) {
+      if ((test.taskPercents[taskNumber] || 100) < 100) {
+        readingTfnsVariants.add(test.variantNumber);
+      }
+    }
+
+    for (let taskNumber = 20; taskNumber <= 34; taskNumber += 1) {
+      if ((test.taskPercents[taskNumber] || 100) >= 100) {
+        continue;
+      }
+      const topic = TASK_TOPIC_MAP[taskNumber];
+      if (!topic) {
+        continue;
+      }
+      const variants = topicVariants.get(topic) || new Set();
+      variants.add(test.variantNumber);
+      topicVariants.set(topic, variants);
+    }
+  }
+
+  const growthAreas = [];
+  const recommendations = [];
+
+  if (readingTask12Variants.size > 0) {
+    growthAreas.push(`Варианты ${formatVariantList(readingTask12Variants)}: чтение, задание 12 — сопоставление текстов и вопросов.`);
+    recommendations.push("По вариантам сборника отдельно тренировать чтение задания 12: быстрое сопоставление вопросов с фрагментами текста.");
+  }
+
+  if (readingTfnsVariants.size > 0) {
+    growthAreas.push(`Варианты ${formatVariantList(readingTfnsVariants)}: чтение, задания 13-19 — True / False / Not stated.`);
+    recommendations.push("По вариантам сборника отдельно тренировать чтение заданий 13-19: факты против домыслов и точные формулировки True / False / Not stated.");
+  }
+
+  const rankedTopics = [...topicVariants.entries()].sort((left, right) => {
+    const sizeDiff = right[1].size - left[1].size;
+    if (sizeDiff !== 0) {
+      return sizeDiff;
+    }
+    return left[0].localeCompare(right[0], "ru");
+  });
+
+  for (const [topic, variants] of rankedTopics.slice(0, 4)) {
+    growthAreas.push(`Варианты ${formatVariantList(variants)}: ${topic}.`);
+    recommendations.push(`По вариантам сборника повторить тему: ${topic}.`);
+  }
+
+  return {
+    growthAreas: dedupeLines(growthAreas),
+    recommendations: dedupeLines(recommendations),
+  };
+}
+
+function formatVariantList(variantsSet) {
+  return [...variantsSet].sort((left, right) => left - right).join(", ");
+}
+
+function dedupeLines(items) {
+  return [...new Set(items.filter(Boolean))];
 }
 
 function levelLabel(value) {

@@ -2,7 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on Keep a Changelog, and this project follows Semantic Versioning.
+The format is based on Keep a Changelog.
+
+## [1.0.1b] - 2026-03-11
+
+### Added
+- PocketBase collections and importer for OGE variant materials from the attached workbook PDF: `oge_variants` and `oge_variant_answers`.
+- Project folders for long-term source assets:
+  - `md/` for reporting instructions
+  - `oge files/` for books, collections, and supporting OGE materials
+- Variant-aware analysis rule in the project instruction: any sheet named `N TEST ...` maps to variant `N` from the workbook.
+
+### Changed
+- Reanalyzed all already solved workbook variants, not only `8 TEST`: current sheets `1 TEST` through `7 TEST` now participate in report insights.
+- Report analysis now uses task-level workbook mapping for reading, grammar, and word formation, so recommendations reference concrete weak tasks from matching variants.
+- Future workbook imports now automatically apply the same `N TEST -> variant N` rule and rerun variant-based analysis.
+
+### Fixed
+- Corrected Excel section slicing for task blocks:
+  - grammar now uses tasks `20-28`
+  - word formation now uses tasks `29-34`
+- Synchronized PocketBase import and generated frontend data so both use the same updated variant-analysis logic.
 
 ## [1.0.1] - 2026-03-11
 
