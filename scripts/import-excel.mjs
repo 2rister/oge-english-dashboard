@@ -13,11 +13,12 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, "..");
 
 loadEnv(path.join(rootDir, ".env"));
+const cliFilePath = getCliOptionValue("--file");
 
 const PB_URL = stripTrailingSlash(process.env.PB_URL || "http://127.0.0.1:8090");
 const PB_ADMIN_EMAIL = process.env.PB_ADMIN_EMAIL || "";
 const PB_ADMIN_PASSWORD = process.env.PB_ADMIN_PASSWORD || "";
-const PB_XLSX_FILE = path.resolve(rootDir, process.env.PB_XLSX_FILE || "./Англ 9 Север-2.xlsx");
+const PB_XLSX_FILE = resolveInputPath(cliFilePath);
 const DRY_RUN = process.argv.includes("--dry-run");
 
 const PALETTE = [
@@ -50,7 +51,7 @@ const PART1_PERCENT_COL = 43;
 const PART2_SCORE_COL = 44;
 const PART2_PERCENT_COL = 45;
 const REQUIRED_COLLECTIONS = ["student_summaries", "student_results"];
-const EXCLUDED_STUDENT_KEYS = new Set(["дугинец", "выступец-дарья"]);
+const EXCLUDED_STUDENT_KEYS = new Set(["дугинец", "выступец_дарья"]);
 
 async function main() {
   validateEnv();
@@ -353,11 +354,22 @@ async function replaceCollection(collection, records, token) {
 }
 
 async function listAll(collection, token) {
-  const response = await requestJson(`/api/collections/${collection}/records?perPage=500`, {
-    method: "GET",
-    token,
-  });
-  return response.items;
+  const items = [];
+  let page = 1;
+
+  while (true) {
+    const response = await requestJson(`/api/collections/${collection}/records?page=${page}&perPage=200&sort=-created`, {
+      method: "GET",
+      token,
+    });
+    items.push(...response.items);
+    if (response.page >= response.totalPages || response.items.length === 0) {
+      break;
+    }
+    page += 1;
+  }
+
+  return items;
 }
 
 function requestJson(resource, options) {
@@ -497,6 +509,65 @@ function loadEnv(filePath) {
       process.env[key] = value;
     }
   });
+}
+
+function resolveInputPath(overridePath) {
+  if (overridePath) {
+    return resolvePathOrLatestXlsx(path.resolve(rootDir, overridePath));
+  }
+
+  const configured = process.env.PB_XLSX_FILE ? path.resolve(rootDir, process.env.PB_XLSX_FILE) : "";
+  if (configured && fs.existsSync(configured)) {
+    return configured;
+  }
+
+  const latestRootFile = getLatestXlsxFromDir(rootDir);
+  if (latestRootFile) {
+    return latestRootFile;
+  }
+
+  return path.resolve(rootDir, "./Англ 9 Север-2.xlsx");
+}
+
+function getCliOptionValue(name) {
+  const index = process.argv.indexOf(name);
+  if (index === -1 || index === process.argv.length - 1) {
+    return "";
+  }
+
+  return process.argv[index + 1];
+}
+
+function resolvePathOrLatestXlsx(targetPath) {
+  if (fs.existsSync(targetPath) && fs.statSync(targetPath).isDirectory()) {
+    const latest = getLatestXlsxFromDir(targetPath);
+    if (latest) {
+      return latest;
+    }
+    throw new Error(`No .xlsx files found in directory: ${targetPath}`);
+  }
+
+  return targetPath;
+}
+
+function getLatestXlsxFromDir(dirPath) {
+  if (!fs.existsSync(dirPath)) {
+    return "";
+  }
+
+  const files = fs
+    .readdirSync(dirPath)
+    .filter((name) => /\.xlsx?$/i.test(name))
+    .map((name) => {
+      const fullPath = path.join(dirPath, name);
+      return {
+        fullPath,
+        mtimeMs: fs.statSync(fullPath).mtimeMs,
+      };
+    })
+    .sort((left, right) => right.mtimeMs - left.mtimeMs);
+
+  return files[0]?.fullPath || "";
 }
 
 main().catch((error) => {

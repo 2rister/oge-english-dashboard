@@ -65,6 +65,10 @@ export type StudentReportData = {
 
 type PocketBaseList<T> = {
   items: T[];
+  page: number;
+  perPage: number;
+  totalItems: number;
+  totalPages: number;
 };
 
 type SummaryRecord = {
@@ -120,58 +124,71 @@ const SECTION_META = [
   { key: "writing", icon: "✍️", title: "Письмо", taskRange: "-" },
 ] as const;
 
-const TEST_ORDER = [
-  "30.10",
-  "29.11",
-  "ЭКЗАМЕН",
-  "ЭКЗАМЕН (отработка)",
-  "отработка 14.01",
-  "21.01",
-  "7.02 Sat",
-  "1 TEST 26-30.01",
-  "2 TEST 2-6.02",
-  "3 TEST 9-13.02",
-  "4 TEST 16-20.02",
-  "5 TEST 23-28.02",
-  "6 TEST 02-08.03",
-  "7 TEST 09-15.0.3",
-] as const;
 const EXCLUDED_STUDENT_KEYS = new Set(["дугинец", "выступец_дарья"]);
 
-async function fetchCollection<T>(collection: string, query = ""): Promise<T[]> {
-  const response = await fetch(`${baseUrl}/api/collections/${collection}/records${query}`);
+async function fetchCollectionPage<T>(collection: string, params: URLSearchParams): Promise<PocketBaseList<T>> {
+  const response = await fetch(`${baseUrl}/api/collections/${collection}/records?${params.toString()}`);
   if (!response.ok) {
     throw new Error(`PocketBase error ${response.status} for ${collection}`);
   }
-  const data = (await response.json()) as PocketBaseList<T>;
-  return data.items;
+  return (await response.json()) as PocketBaseList<T>;
+}
+
+async function fetchCollectionAll<T>(collection: string, options: { sort?: string; filter?: string } = {}): Promise<T[]> {
+  const perPage = 200;
+  let page = 1;
+  const items: T[] = [];
+
+  while (true) {
+    const params = new URLSearchParams({
+      page: String(page),
+      perPage: String(perPage),
+    });
+    if (options.sort) params.set("sort", options.sort);
+    if (options.filter) params.set("filter", options.filter);
+
+    const data = await fetchCollectionPage<T>(collection, params);
+    items.push(...data.items);
+
+    if (data.page >= data.totalPages || data.items.length === 0) {
+      break;
+    }
+    page += 1;
+  }
+
+  return items;
 }
 
 export async function loadReportData(): Promise<ReportData> {
   const [summaryRecords, resultRecords] = await Promise.all([
-    fetchCollection<SummaryRecord>("student_summaries", "?perPage=200&sort=groupName,fullName"),
-    fetchCollection<ResultRecord>("student_results", "?perPage=500&sort=studentKey,sortOrder"),
+    fetchCollectionAll<SummaryRecord>("student_summaries", { sort: "groupName,fullName" }),
+    fetchCollectionAll<ResultRecord>("student_results", { sort: "sortOrder,studentKey" }),
   ]);
 
+  const visibleSummaryRecords = summaryRecords.filter((summary) => !isExcludedStudent(summary.studentKey, summary.fullName));
+  const visibleStudentKeys = new Set(visibleSummaryRecords.map((summary) => summary.studentKey));
+  const visibleResultRecords = resultRecords.filter((record) => visibleStudentKeys.has(record.studentKey));
+  const orderedTests = buildOrderedTests(visibleResultRecords);
+
   const resultsMap = new Map<string, Map<string, ResultRecord>>();
-  resultRecords.forEach((record) => {
+  visibleResultRecords.forEach((record) => {
     const bySheet = resultsMap.get(record.studentKey) ?? new Map<string, ResultRecord>();
     bySheet.set(normalizeSheetName(record.sheetName), record);
     resultsMap.set(record.studentKey, bySheet);
   });
 
-  const reports = summaryRecords.map((summary) => {
+  const reports = visibleSummaryRecords.map((summary) => {
     const bySheet = resultsMap.get(summary.studentKey) ?? new Map<string, ResultRecord>();
-    const tests = TEST_ORDER.map((rawName) => {
-      const key = normalizeSheetName(rawName);
+    const tests = orderedTests.map((testMeta) => {
+      const key = normalizeSheetName(testMeta.sheetName);
       const record = bySheet.get(key);
       const totalPercent = record?.writtenPercent ?? 0;
       return {
-        sheetName: rawName,
-        label: rawName,
-        shortLabel: shortLabel(rawName),
-        monthLabel: monthLabel(rawName),
-        isExam: rawName.includes("ЭКЗАМЕН"),
+        sheetName: testMeta.sheetName,
+        label: testMeta.label,
+        shortLabel: shortLabel(testMeta.label),
+        monthLabel: monthLabel(testMeta.label),
+        isExam: testMeta.isExam,
         hasData: Boolean(record),
         part1Score: record?.part1Score ?? 0,
         part1Percent: record?.part1Percent ?? 0,
@@ -224,14 +241,13 @@ export async function loadReportData(): Promise<ReportData> {
       monthlyBars,
     };
   });
-  const filteredReports = reports.filter((report) => !isExcludedStudent(report.studentKey, report.fullName));
 
-  const groups = Array.from(new Set(filteredReports.map((report) => report.groupName)))
+  const groups = Array.from(new Set(reports.map((report) => report.groupName)))
     .sort((a, b) => a.localeCompare(b, "ru"))
     .map((groupName, index) => ({
       groupName,
-      color: filteredReports.find((report) => report.groupName === groupName)?.colorB || fallbackGroupColor(index),
-      students: filteredReports
+      color: reports.find((report) => report.groupName === groupName)?.colorB || fallbackGroupColor(index),
+      students: reports
         .filter((report) => report.groupName === groupName)
         .map((report) => ({
           studentKey: report.studentKey,
@@ -243,8 +259,30 @@ export async function loadReportData(): Promise<ReportData> {
   return {
     generatedAt: new Date().toISOString(),
     groups,
-    reports: filteredReports,
+    reports,
   };
+}
+
+function buildOrderedTests(resultRecords: ResultRecord[]) {
+  const tests = new Map<string, { sheetName: string; label: string; sortOrder: number; isExam: boolean }>();
+
+  resultRecords.forEach((record) => {
+    const key = normalizeSheetName(record.sheetName);
+    const existing = tests.get(key);
+    if (!existing || record.sortOrder > existing.sortOrder) {
+      tests.set(key, {
+        sheetName: record.sheetName,
+        label: record.label || record.sheetName,
+        sortOrder: record.sortOrder,
+        isExam: record.sheetName.includes("ЭКЗАМЕН"),
+      });
+    }
+  });
+
+  return Array.from(tests.values()).sort((left, right) => {
+    if (left.sortOrder !== right.sortOrder) return left.sortOrder - right.sortOrder;
+    return left.label.localeCompare(right.label, "ru");
+  });
 }
 
 function buildMonthlyBars(tests: StudentReportData["tests"]) {

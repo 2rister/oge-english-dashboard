@@ -1,8 +1,22 @@
 # ОГЭ Английский · React + PocketBase
 
-Текущая версия: `1.0.0`
+Текущая версия: `1.0.1`
 
-Приложение читает результаты из Excel, нормализует их в две коллекции PocketBase и показывает отчёты по ученикам в React-интерфейсе.
+Приложение читает результаты из Excel, нормализует их в две коллекции PocketBase и показывает отчёты по ученикам в React-интерфейсе. Начиная с `1.0.1`, обновление источника идёт из самого свежего `xlsx` в корне проекта.
+
+## Быстрый сценарий
+
+Если вы обновляете данные через Finder:
+
+1. Положите самый свежий `xlsx` в корень проекта
+2. Запустите:
+
+```bash
+npm run refresh:reports
+```
+
+Скрипт сам возьмёт самый новый Excel-файл из корня проекта, обновит PocketBase и пересчитает отчёты для фронтенда.
+Если у вас уже запущен `npm start` или `launchd`-агент, новый `xlsx` в корне подхватится автоматически в фоне.
 
 ## Что внутри
 
@@ -52,6 +66,10 @@
 - `sheetName` — `text`
 - `label` — `text`
 - `sortOrder` — `number`
+- `part1Score` — `number`
+- `part1Percent` — `number`
+- `part2Score` — `number`
+- `part2Percent` — `number`
 - `writtenScore` — `number`
 - `writtenPercent` — `number`
 - `listeningPercent` — `number`
@@ -67,7 +85,7 @@
    - `PB_URL`
    - `PB_ADMIN_EMAIL`
    - `PB_ADMIN_PASSWORD`
-   - `PB_XLSX_FILE` при необходимости
+   - `PB_XLSX_FILE`, только если нужно явно переопределить файл
 3. Установи зависимости:
 
 ```bash
@@ -83,7 +101,8 @@ npm start
 Это одновременно:
 - PocketBase на `http://127.0.0.1:8091`
 - Vite dev server на `http://127.0.0.1:5173`
-- перед стартом сгенерирует `public/report-data.json` из корневого `xlsx`, поэтому интерфейс показывает данные даже без чтения из PocketBase
+- watcher, который следит за новым `xlsx` в корне и автоматически обновляет PocketBase и отчёты
+- перед стартом сгенерирует `public/report-data.json` из актуального `xlsx`
 
 Если нужен только PocketBase, используй:
 
@@ -93,7 +112,7 @@ npm run pb:serve
 
 При первом запуске PocketBase попросит создать первого администратора. После этого создай коллекции по схеме выше.
 
-5. Импортируй Excel в PocketBase:
+5. При необходимости можно импортировать Excel и вручную:
 
 ```bash
 npm run import:excel
@@ -105,7 +124,7 @@ npm run import:excel
 node scripts/import-excel.mjs --dry-run
 ```
 
-6. Запусти фронтенд:
+6. Если нужен только фронтенд:
 
 ```bash
 npm run dev

@@ -1,9 +1,11 @@
 .DS_Store
 .env
+.cache/
 .npm-cache/
 node_modules/
 dist/
 public/report-data.json
+data/
 pocketbase/pb_data/
 pocketbase/pocketbase
 pocketbase/CHANGELOG.md
@@ -14,4 +16,4 @@ pocketbase/LICENSE.md
 *.db-shm
 *.db-wal
 *.xlsx
-
+!tables/.gitkeep

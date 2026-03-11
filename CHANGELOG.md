@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project follows Semantic Versioning.
 
+## [1.0.1] - 2026-03-11
+
+### Changed
+- Source refresh now uses the newest `xlsx` file in the project root.
+- `npm run refresh:reports` reimports PocketBase data and regenerates reports from the latest root Excel file.
+- `npm start` now launches only PocketBase and Vite.
+- Running stack now also watches the project root and auto-refreshes when a newer `xlsx` appears.
+
+### Removed
+- Browser-based Excel upload UI from the React interface.
+- Local upload API and its startup wiring.
+
 ## [1.0.0] - 2026-03-11
 
 ### Added
@@ -27,4 +39,3 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 - Writing-section parsing from Excel now uses the correct aggregated source column.
 - Import/auth flow updated for current PocketBase superuser API.
 - Start script now stops conflicting local dev services on `8091` and `5173` before launching.
-
