@@ -5,6 +5,10 @@
   "type": "module",
   "scripts": {
     "build:data": "node scripts/generate-report-data.mjs",
+    "generate:grammar-boost": "python3 scripts/generate-grammar-boost-docx.py",
+    "import:grammar-boost-db": "python3 scripts/import-grammar-boost-db.py",
+    "import:grammar-boost-results": "python3 scripts/import-grammar-boost-results.py",
+    "import:grammar-bank": "python3 scripts/import-grammar-bank.py",
     "import:oge-materials": "python3 scripts/import-oge-materials.py",
     "refresh:reports": "node scripts/import-excel.mjs && node scripts/generate-report-data.mjs",
     "start": "node scripts/start-all.mjs",

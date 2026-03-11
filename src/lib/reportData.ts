@@ -28,6 +28,11 @@ export type StudentReportData = {
   strengths: string[];
   growthAreas: string[];
   recommendation: string;
+  boosts: Array<{
+    title: string;
+    topics: string;
+    percentCorrect: number;
+  }>;
   sections: Array<{
     key: string;
     icon: string;
@@ -88,6 +93,7 @@ type SummaryRecord = {
   growthAreas: string;
   trendText: string;
   recommendation: string;
+  boostsJson?: string;
   sectionListening: number;
   sectionReading: number;
   sectionGrammar: number;
@@ -236,6 +242,7 @@ export async function loadReportData(): Promise<ReportData> {
       strengths: splitLines(summary.strengths),
       growthAreas: splitLines(summary.growthAreas),
       recommendation: summary.recommendation,
+      boosts: parseBoosts(summary.boostsJson),
       sections,
       tests,
       monthlyBars,
@@ -366,6 +373,30 @@ function fallbackGroupColor(index: number) {
 
 function splitLines(value: string) {
   return value.split("\n").map((item) => item.trim()).filter(Boolean);
+}
+
+function parseBoosts(value?: string) {
+  if (!value) {
+    return [];
+  }
+
+  try {
+    const parsed = JSON.parse(value);
+    if (!Array.isArray(parsed)) {
+      return [];
+    }
+
+    return parsed
+      .filter((item) => item && typeof item === "object")
+      .map((item) => ({
+        title: String(item.title || "").trim(),
+        topics: String(item.topics || "").trim(),
+        percentCorrect: Number(item.percentCorrect || 0),
+      }))
+      .filter((item) => item.title && item.topics);
+  } catch {
+    return [];
+  }
 }
 
 function round(value: number, digits = 1) {

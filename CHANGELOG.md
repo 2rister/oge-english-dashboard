@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog.
 
+## [Unreleased]
+
+### Added
+- PocketBase collections and import tooling for the 2023 FIPI grammar bank: `oge_grammar_variants` and `oge_grammar_tasks`.
+- Individual `Grammar Boost` generation for each student with `DOCX` handouts and a shared teacher answer-key document.
+- PocketBase collection `student_grammar_boosts` for assigned boost variants, weak topics, answer keys, and future result masks.
+- Text-based grammar boost result importer that accepts lines like `Безбородкин Дмитрий 11100100` and updates `answerMask` plus `correctCount`.
+- Source files for the 2023 grammar bank under `oge files/23 gram/`.
+
+### Changed
+- Student report boost planning now has backing database records for all current students, each with an 8-task individual grammar variant.
+- Project documentation/assets are synchronized with the new grammar-bank-driven remediation workflow.
+
 ## [1.0.1c] - 2026-03-11
 
 ### Changed

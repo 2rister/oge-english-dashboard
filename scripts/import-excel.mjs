@@ -77,6 +77,23 @@ const TASK_TOPIC_MAP = {
   33: "Словообразование: отрицательные префиксы (un- / im- / in-)",
   34: "Словообразование: отрицательные префиксы (un- / im- / in- / dis- / ir-)",
 };
+const BOOST_TOPIC_MAP = {
+  20: "past simple, comparison, plural forms",
+  21: "past simple, negatives, past continuous",
+  22: "passive voice, comparison, past simple",
+  23: "past simple, irregular plurals, negatives",
+  24: "past simple, comparison, negatives",
+  25: "present perfect, pronouns, past simple",
+  26: "ordinal numerals, pronouns, negatives",
+  27: "past perfect, past simple, comparison",
+  28: "present perfect, irregular plurals",
+  29: "noun suffixes: -tion, -ance, -ment, -er",
+  30: "adjective suffixes: -ous, -ful, -al, -ive, -able",
+  31: "noun suffixes: -er, -or, -ist, -ness, -ion",
+  32: "adjective suffixes: -able, -ful, -ous, -ive, -ing, -ed",
+  33: "negative prefixes: un-, im-, in-",
+  34: "negative prefixes: un-, im-, in-, dis-, ir-",
+};
 
 async function main() {
   validateEnv();
@@ -237,6 +254,7 @@ function buildDataset(workbook) {
       averagePercent: averageOf(student.tests.map((test) => test[`${section.key}Percent`])),
     }));
     const variantInsights = analyzeVariantInsights(student.tests);
+    const boosts = buildBoosts(student.tests);
     const strengths = buildStrengths(sections);
     const growthAreas = buildGrowthAreas(sections, percents, variantInsights);
     const recommendation = buildRecommendation(sections, variantInsights);
@@ -258,6 +276,7 @@ function buildDataset(workbook) {
       growthAreas: growthAreas.join("\n"),
       trendText,
       recommendation,
+      boostsJson: JSON.stringify(boosts),
       sectionListening: round(sectionValue(sections, "listening")),
       sectionReading: round(sectionValue(sections, "reading")),
       sectionGrammar: round(sectionValue(sections, "grammar")),
@@ -408,6 +427,65 @@ function buildTaskPercents(row, maximums) {
 
 function emptyVariantInsights() {
   return { growthAreas: [], recommendations: [] };
+}
+
+function buildBoosts(tests) {
+  const topicStats = new Map();
+
+  for (const test of tests) {
+    if (!test.taskPercents) {
+      continue;
+    }
+
+    for (let taskNumber = 20; taskNumber <= 34; taskNumber += 1) {
+      const percent = test.taskPercents[taskNumber];
+      if (percent === null || percent === undefined) {
+        continue;
+      }
+
+      const topic = BOOST_TOPIC_MAP[taskNumber];
+      if (!topic) {
+        continue;
+      }
+
+      const sectionKey = taskNumber <= 28 ? "grammar" : "vocabulary";
+      const stat = topicStats.get(topic) || { sectionKey, totalPercent: 0, count: 0 };
+      stat.totalPercent += percent;
+      stat.count += 1;
+      topicStats.set(topic, stat);
+    }
+  }
+
+  const ranked = [...topicStats.entries()]
+    .map(([topic, stat]) => ({
+      topic,
+      sectionKey: stat.sectionKey,
+      averagePercent: stat.count > 0 ? round(stat.totalPercent / stat.count, 1) : 0,
+    }))
+    .filter((item) => item.averagePercent < 100)
+    .sort((left, right) => left.averagePercent - right.averagePercent || left.topic.localeCompare(right.topic, "en"))
+    .slice(0, 4);
+
+  let grammarIndex = 0;
+  let vocabularyIndex = 0;
+
+  return ranked.map((item) => {
+    if (item.sectionKey === "grammar") {
+      grammarIndex += 1;
+      return {
+        title: `Grammar Boost ${grammarIndex}`,
+        topics: item.topic,
+        percentCorrect: item.averagePercent,
+      };
+    }
+
+    vocabularyIndex += 1;
+    return {
+      title: `Word Formation Boost ${vocabularyIndex}`,
+      topics: item.topic,
+      percentCorrect: item.averagePercent,
+    };
+  });
 }
 
 function analyzeVariantInsights(tests) {

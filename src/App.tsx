@@ -116,7 +116,7 @@ function studentSection(report: StudentReportData) {
       <div className="s-header" style={{ background: `linear-gradient(135deg,${report.colorA},${report.colorB})` }}>
         <div className="s-header-left">
           <h2>{report.fullName}</h2>
-          <p>Английский язык · ОГЭ · 9 класс · Группа {report.groupName}</p>
+          <p>Группа {report.groupName}</p>
         </div>
         <div className="s-header-right">
           <div className="exam-chip">🎓 {report.latestScore}/53 · {report.latestPercent.toFixed(1)}%</div>
@@ -207,6 +207,32 @@ function studentSection(report: StudentReportData) {
             </tbody>
           </table>
         </div>
+
+        {report.boosts.length > 0 ? (
+          <>
+            <div className="stitle boost-title" style={{ borderLeftColor: "#d53f8c" }}>💗 Boost</div>
+            <div className="boost-tbl-wrap">
+              <table className="boost-table">
+                <thead>
+                  <tr>
+                    <th>Название</th>
+                    <th>Темы отработки</th>
+                    <th>% правильных ответов</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {report.boosts.map((boost) => (
+                    <tr key={`${report.studentKey}-${boost.title}`}>
+                      <td className="boost-name">{boost.title}</td>
+                      <td>{boost.topics}</td>
+                      <td className="boost-percent">{boost.percentCorrect.toFixed(1)}%</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        ) : null}
 
         <div className="stitle" style={{ borderLeftColor: report.colorB }}>🧠 Выводы</div>
         <div className="recs-grid">

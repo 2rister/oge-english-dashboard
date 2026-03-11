@@ -157,6 +157,7 @@ async function buildReportDataFromPocketBase() {
       strengths: splitLines(summary.strengths),
       growthAreas: splitLines(summary.growthAreas),
       recommendation: summary.recommendation,
+      boosts: parseBoosts(summary.boostsJson),
       sections,
       tests,
       monthlyBars: buildMonthlyBars(tests.filter((test) => test.hasData)),
@@ -316,6 +317,30 @@ function splitLines(value) {
     .split(/\r?\n/)
     .map((item) => item.trim())
     .filter(Boolean);
+}
+
+function parseBoosts(value) {
+  if (!value) {
+    return [];
+  }
+
+  try {
+    const parsed = JSON.parse(value);
+    if (!Array.isArray(parsed)) {
+      return [];
+    }
+
+    return parsed
+      .filter((item) => item && typeof item === "object")
+      .map((item) => ({
+        title: String(item.title || "").trim(),
+        topics: String(item.topics || "").trim(),
+        percentCorrect: Number(item.percentCorrect || 0),
+      }))
+      .filter((item) => item.title && item.topics);
+  } catch {
+    return [];
+  }
 }
 
 function normalizeSheetName(value) {

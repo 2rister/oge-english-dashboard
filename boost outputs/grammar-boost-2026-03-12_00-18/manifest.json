@@ -1,0 +1,1566 @@
+[
+  {
+    "fullName": "Алешкина Елизавета",
+    "groupName": "9.1",
+    "weakTopics": [
+      "модальные формы / условные конструкции / формы глагола",
+      "числительные / порядковые формы",
+      "видовременные формы / базовые формы глагола",
+      "пассивный залог / длительные формы / согласование времен"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 26,
+        "taskNumber": 20,
+        "cueWord": "LEAF",
+        "answer": "LEAVES",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 67,
+        "taskNumber": 20,
+        "cueWord": "OLD",
+        "answer": "OLDER",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 3,
+        "taskNumber": 21,
+        "cueWord": "LIVE",
+        "answer": "WOULD LIVE",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 48,
+        "taskNumber": 21,
+        "cueWord": "ENJOY",
+        "answer": "ENJOYED",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 21,
+        "taskNumber": 22,
+        "cueWord": "COVER",
+        "answer": "WAS COVERED",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 73,
+        "taskNumber": 22,
+        "cueWord": "SHAKE",
+        "answer": "SHOOK",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 12,
+        "taskNumber": 26,
+        "cueWord": "WRITE",
+        "answer": "WAS WRITTEN",
+        "topic": "Грамматика: словообразование числительных / порядковые формы"
+      },
+      {
+        "variantNumber": 20,
+        "taskNumber": 26,
+        "cueWord": "NOT KNOW",
+        "answer": "DO NOT KNOW",
+        "topic": "Грамматика: словообразование числительных / порядковые формы"
+      }
+    ]
+  },
+  {
+    "fullName": "Васильева Кристина",
+    "groupName": "9.1",
+    "weakTopics": [
+      "видовременные формы / базовые формы глагола",
+      "модальные формы / условные конструкции / формы глагола",
+      "местоимения / притяжательные формы / личные формы",
+      "множественное число / исключения / существительные"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 5,
+        "taskNumber": 20,
+        "cueWord": "BE",
+        "answer": "WAS",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 25,
+        "taskNumber": 20,
+        "cueWord": "CAN",
+        "answer": "COULD",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 53,
+        "taskNumber": 22,
+        "cueWord": "CALL",
+        "answer": "WAS CALLED",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 63,
+        "taskNumber": 22,
+        "cueWord": "MAN",
+        "answer": "MEN",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 14,
+        "taskNumber": 24,
+        "cueWord": "BE",
+        "answer": "WERE",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 25,
+        "taskNumber": 24,
+        "cueWord": "CALL",
+        "answer": "WAS CALLED",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 1,
+        "taskNumber": 25,
+        "cueWord": "I",
+        "answer": "ME",
+        "topic": "Грамматика: множественное число / исключения / существительные"
+      },
+      {
+        "variantNumber": 48,
+        "taskNumber": 25,
+        "cueWord": "STORY",
+        "answer": "STORIES",
+        "topic": "Грамматика: множественное число / исключения / существительные"
+      }
+    ]
+  },
+  {
+    "fullName": "Леонтьев Тимофей",
+    "groupName": "9.1",
+    "weakTopics": [
+      "видовременные формы / базовые формы глагола",
+      "степени сравнения / числительные / местоимения",
+      "местоимения / притяжательные формы / личные формы",
+      "множественное число / исключения / существительные"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 62,
+        "taskNumber": 20,
+        "cueWord": "CHOOSE",
+        "answer": "CHOSE",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 70,
+        "taskNumber": 20,
+        "cueWord": "ONE",
+        "answer": "FIRST",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 25,
+        "taskNumber": 23,
+        "cueWord": "ONE",
+        "answer": "FIRST",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 31,
+        "taskNumber": 23,
+        "cueWord": "CAN",
+        "answer": "COULD",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 30,
+        "taskNumber": 24,
+        "cueWord": "CAN",
+        "answer": "COULD",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 60,
+        "taskNumber": 24,
+        "cueWord": "SHE",
+        "answer": "HER",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 19,
+        "taskNumber": 25,
+        "cueWord": "BE",
+        "answer": "WERE",
+        "topic": "Грамматика: множественное число / исключения / существительные"
+      },
+      {
+        "variantNumber": 39,
+        "taskNumber": 25,
+        "cueWord": "BUY",
+        "answer": "HAVE BOUGHT",
+        "topic": "Грамматика: множественное число / исключения / существительные"
+      }
+    ]
+  },
+  {
+    "fullName": "Рагулина София",
+    "groupName": "9.1",
+    "weakTopics": [
+      "видовременные формы / базовые формы глагола",
+      "модальные формы / условные конструкции / формы глагола",
+      "степени сравнения / числительные / местоимения",
+      "местоимения / притяжательные формы / личные формы"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 12,
+        "taskNumber": 20,
+        "cueWord": "I",
+        "answer": "ME",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 68,
+        "taskNumber": 20,
+        "cueWord": "THREE",
+        "answer": "THIRD",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 19,
+        "taskNumber": 22,
+        "cueWord": "KEEP",
+        "answer": "WERE KEPT",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 64,
+        "taskNumber": 22,
+        "cueWord": "KNOW",
+        "answer": "KNOWS",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 23,
+        "taskNumber": 23,
+        "cueWord": "BE",
+        "answer": "WERE",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 43,
+        "taskNumber": 23,
+        "cueWord": "CHAT",
+        "answer": "WERE CHATTING",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 20,
+        "taskNumber": 24,
+        "cueWord": "TAKE",
+        "answer": "TOOK",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 27,
+        "taskNumber": 24,
+        "cueWord": "BE",
+        "answer": "WAS",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      }
+    ]
+  },
+  {
+    "fullName": "Семёнова Алиса",
+    "groupName": "9.1",
+    "weakTopics": [
+      "видовременные формы / базовые формы глагола",
+      "модальные формы / условные конструкции / формы глагола",
+      "степени сравнения / числительные / местоимения",
+      "местоимения / притяжательные формы / личные формы"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 7,
+        "taskNumber": 20,
+        "cueWord": "BE",
+        "answer": "WERE",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 9,
+        "taskNumber": 20,
+        "cueWord": "CHILD",
+        "answer": "CHILDREN",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 5,
+        "taskNumber": 22,
+        "cueWord": "NOT CAN",
+        "answer": "COULD NOT",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 9,
+        "taskNumber": 22,
+        "cueWord": "CAN",
+        "answer": "COULD",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 5,
+        "taskNumber": 23,
+        "cueWord": "FIND",
+        "answer": "WAS FOUND",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 39,
+        "taskNumber": 23,
+        "cueWord": "BAD",
+        "answer": "WORST",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 36,
+        "taskNumber": 24,
+        "cueWord": "MEAN",
+        "answer": "MEANS",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 53,
+        "taskNumber": 24,
+        "cueWord": "MAKE",
+        "answer": "HAS MADE",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      }
+    ]
+  },
+  {
+    "fullName": "Фоменко Олеся",
+    "groupName": "9.1",
+    "weakTopics": [
+      "видовременные формы / базовые формы глагола",
+      "модальные формы / условные конструкции / формы глагола",
+      "числительные / порядковые формы",
+      "пассивный залог / длительные формы / согласование времен"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 2,
+        "taskNumber": 20,
+        "cueWord": "BE",
+        "answer": "WAS",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 58,
+        "taskNumber": 20,
+        "cueWord": "CHILD",
+        "answer": "CHILDREN",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 41,
+        "taskNumber": 21,
+        "cueWord": "YOUNG",
+        "answer": "YOUNGER",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 57,
+        "taskNumber": 21,
+        "cueWord": "ONE",
+        "answer": "FIRST",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 45,
+        "taskNumber": 22,
+        "cueWord": "KIND",
+        "answer": "KINDEST",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 50,
+        "taskNumber": 22,
+        "cueWord": "BREAK",
+        "answer": "WAS BROKEN",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 14,
+        "taskNumber": 26,
+        "cueWord": "HAVE",
+        "answer": "WERE HAVING",
+        "topic": "Грамматика: словообразование числительных / порядковые формы"
+      },
+      {
+        "variantNumber": 21,
+        "taskNumber": 26,
+        "cueWord": "CHILD",
+        "answer": "CHILDREN",
+        "topic": "Грамматика: словообразование числительных / порядковые формы"
+      }
+    ]
+  },
+  {
+    "fullName": "Шуванова Алиса",
+    "groupName": "9.1",
+    "weakTopics": [
+      "видовременные формы / базовые формы глагола",
+      "местоимения / притяжательные формы / личные формы",
+      "числительные / порядковые формы",
+      "пассивный залог / длительные формы / согласование времен"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 1,
+        "taskNumber": 20,
+        "cueWord": "COME",
+        "answer": "CAME",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 17,
+        "taskNumber": 20,
+        "cueWord": "LATE",
+        "answer": "LATER",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 66,
+        "taskNumber": 21,
+        "cueWord": "CLIMB",
+        "answer": "WAS CLIMBING",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 73,
+        "taskNumber": 21,
+        "cueWord": "WANT",
+        "answer": "WANTED",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 28,
+        "taskNumber": 24,
+        "cueWord": "HAVE",
+        "answer": "HAD",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 58,
+        "taskNumber": 24,
+        "cueWord": "SEE",
+        "answer": "WOULD SEE",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 34,
+        "taskNumber": 26,
+        "cueWord": "PAINT",
+        "answer": "ARE PAINTED",
+        "topic": "Грамматика: словообразование числительных / порядковые формы"
+      },
+      {
+        "variantNumber": 53,
+        "taskNumber": 26,
+        "cueWord": "NOT LISTEN",
+        "answer": "DO NOT LISTEN",
+        "topic": "Грамматика: словообразование числительных / порядковые формы"
+      }
+    ]
+  },
+  {
+    "fullName": "Акопджанян Алла",
+    "groupName": "9.2",
+    "weakTopics": [
+      "видовременные формы / базовые формы глагола",
+      "пассивный залог / длительные формы / согласование времен",
+      "модальные формы / условные конструкции / формы глагола",
+      "степени сравнения / числительные / местоимения"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 50,
+        "taskNumber": 20,
+        "cueWord": "BE",
+        "answer": "WERE",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 66,
+        "taskNumber": 20,
+        "cueWord": "NOT LISTEN",
+        "answer": "DID NOT LISTEN",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 44,
+        "taskNumber": 21,
+        "cueWord": "KEEP",
+        "answer": "ARE KEPT",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 51,
+        "taskNumber": 21,
+        "cueWord": "HAPPEN",
+        "answer": "HAS HAPPENED",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 6,
+        "taskNumber": 22,
+        "cueWord": "HELP",
+        "answer": "HELPS",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 66,
+        "taskNumber": 22,
+        "cueWord": "FEEL",
+        "answer": "FELT",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 22,
+        "taskNumber": 23,
+        "cueWord": "NOT KNOW",
+        "answer": "DO NOT KNOW",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 54,
+        "taskNumber": 23,
+        "cueWord": "THEY",
+        "answer": "THEIR",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      }
+    ]
+  },
+  {
+    "fullName": "Виниченко Дмитрий",
+    "groupName": "9.2",
+    "weakTopics": [
+      "видовременные формы / базовые формы глагола",
+      "степени сравнения / числительные / местоимения",
+      "местоимения / притяжательные формы / личные формы",
+      "числительные / порядковые формы"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 1,
+        "taskNumber": 20,
+        "cueWord": "COME",
+        "answer": "CAME",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 61,
+        "taskNumber": 20,
+        "cueWord": "THINK",
+        "answer": "THOUGHT",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 69,
+        "taskNumber": 23,
+        "cueWord": "CLOSE",
+        "answer": "WAS CLOSED",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 75,
+        "taskNumber": 23,
+        "cueWord": "CHILD",
+        "answer": "CHILDEN",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 17,
+        "taskNumber": 24,
+        "cueWord": "BE",
+        "answer": "WOULD BE",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 29,
+        "taskNumber": 24,
+        "cueWord": "SPEAK",
+        "answer": "WAS SPOKEN",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 27,
+        "taskNumber": 26,
+        "cueWord": "HIM",
+        "answer": "HIM",
+        "topic": "Грамматика: словообразование числительных / порядковые формы"
+      },
+      {
+        "variantNumber": 53,
+        "taskNumber": 26,
+        "cueWord": "NOT LISTEN",
+        "answer": "DO NOT LISTEN",
+        "topic": "Грамматика: словообразование числительных / порядковые формы"
+      }
+    ]
+  },
+  {
+    "fullName": "Гунько Полина",
+    "groupName": "9.2",
+    "weakTopics": [
+      "видовременные формы / базовые формы глагола",
+      "пассивный залог / длительные формы / согласование времен",
+      "модальные формы / условные конструкции / формы глагола",
+      "степени сравнения / числительные / местоимения"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 8,
+        "taskNumber": 20,
+        "cueWord": "CHILD",
+        "answer": "CHILDREN",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 60,
+        "taskNumber": 20,
+        "cueWord": "FEEL",
+        "answer": "FELT",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 15,
+        "taskNumber": 21,
+        "cueWord": "ARRANGE",
+        "answer": "WAS ARRANGED",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 46,
+        "taskNumber": 21,
+        "cueWord": "BE",
+        "answer": "WAS/WERE",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 13,
+        "taskNumber": 22,
+        "cueWord": "BE",
+        "answer": "WAS",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 51,
+        "taskNumber": 22,
+        "cueWord": "I",
+        "answer": "ME",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 60,
+        "taskNumber": 23,
+        "cueWord": "NOT CAN",
+        "answer": "COULD NOT",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 70,
+        "taskNumber": 23,
+        "cueWord": "GOOD",
+        "answer": "BEST",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      }
+    ]
+  },
+  {
+    "fullName": "Курсеитова София",
+    "groupName": "9.2",
+    "weakTopics": [
+      "видовременные формы / базовые формы глагола",
+      "модальные формы / условные конструкции / формы глагола",
+      "множественное число / исключения / существительные",
+      "числительные / порядковые формы"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 39,
+        "taskNumber": 20,
+        "cueWord": "LEAVE",
+        "answer": "LEFT",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 71,
+        "taskNumber": 20,
+        "cueWord": "INTERESTING",
+        "answer": "MOST INTERESTING",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 36,
+        "taskNumber": 22,
+        "cueWord": "CHILD",
+        "answer": "CHILDREN",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 46,
+        "taskNumber": 22,
+        "cueWord": "NOT CAN",
+        "answer": "COULD NOT",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 41,
+        "taskNumber": 25,
+        "cueWord": "CAN",
+        "answer": "COULD NOT",
+        "topic": "Грамматика: множественное число / исключения / существительные"
+      },
+      {
+        "variantNumber": 72,
+        "taskNumber": 25,
+        "cueWord": "MAKE",
+        "answer": "WAS MAKING",
+        "topic": "Грамматика: множественное число / исключения / существительные"
+      },
+      {
+        "variantNumber": 45,
+        "taskNumber": 26,
+        "cueWord": "GO",
+        "answer": "WENT",
+        "topic": "Грамматика: словообразование числительных / порядковые формы"
+      },
+      {
+        "variantNumber": 73,
+        "taskNumber": 26,
+        "cueWord": "AGREE",
+        "answer": "WILL AGREE",
+        "topic": "Грамматика: словообразование числительных / порядковые формы"
+      }
+    ]
+  },
+  {
+    "fullName": "Лопатко Екатерина",
+    "groupName": "9.2",
+    "weakTopics": [
+      "видовременные формы / базовые формы глагола",
+      "степени сравнения / числительные / местоимения",
+      "местоимения / притяжательные формы / личные формы",
+      "множественное число / исключения / существительные"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 37,
+        "taskNumber": 20,
+        "cueWord": "NOT SPEND",
+        "answer": "DID NOT SPEND",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 48,
+        "taskNumber": 20,
+        "cueWord": "CHOOSE",
+        "answer": "CHOSE",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 44,
+        "taskNumber": 23,
+        "cueWord": "POTATO",
+        "answer": "POTATOES",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 50,
+        "taskNumber": 23,
+        "cueWord": "TAKE",
+        "answer": "WOULD TAKE",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 3,
+        "taskNumber": 24,
+        "cueWord": "PASS",
+        "answer": "WERE PASSING",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 9,
+        "taskNumber": 24,
+        "cueWord": "SHE",
+        "answer": "HER",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 26,
+        "taskNumber": 25,
+        "cueWord": "NOT HEAR",
+        "answer": "DID NOT HEAR",
+        "topic": "Грамматика: множественное число / исключения / существительные"
+      },
+      {
+        "variantNumber": 69,
+        "taskNumber": 25,
+        "cueWord": "HAPPEN",
+        "answer": "HAS HAPPENED",
+        "topic": "Грамматика: множественное число / исключения / существительные"
+      }
+    ]
+  },
+  {
+    "fullName": "Панин Даниил",
+    "groupName": "9.2",
+    "weakTopics": [
+      "видовременные формы / базовые формы глагола",
+      "пассивный залог / длительные формы / согласование времен",
+      "модальные формы / условные конструкции / формы глагола",
+      "степени сравнения / числительные / местоимения"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 30,
+        "taskNumber": 20,
+        "cueWord": "NOT WANT",
+        "answer": "DO NOT WANT",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 61,
+        "taskNumber": 20,
+        "cueWord": "THINK",
+        "answer": "THOUGHT",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 3,
+        "taskNumber": 21,
+        "cueWord": "LIVE",
+        "answer": "WOULD LIVE",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 61,
+        "taskNumber": 21,
+        "cueWord": "NOT MIND",
+        "answer": "DID NOT MIND",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 25,
+        "taskNumber": 22,
+        "cueWord": "LUCKY",
+        "answer": "LUCKIEST",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 58,
+        "taskNumber": 22,
+        "cueWord": "NOT WANT",
+        "answer": "DO NOT WANT",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 24,
+        "taskNumber": 23,
+        "cueWord": "THEY",
+        "answer": "THEIR",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 31,
+        "taskNumber": 23,
+        "cueWord": "CAN",
+        "answer": "COULD",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      }
+    ]
+  },
+  {
+    "fullName": "Романов Адам",
+    "groupName": "9.2",
+    "weakTopics": [
+      "видовременные формы / базовые формы глагола",
+      "модальные формы / условные конструкции / формы глагола",
+      "степени сравнения / числительные / местоимения",
+      "местоимения / притяжательные формы / личные формы"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 17,
+        "taskNumber": 20,
+        "cueWord": "LATE",
+        "answer": "LATER",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 56,
+        "taskNumber": 20,
+        "cueWord": "THEY",
+        "answer": "THEIR",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 36,
+        "taskNumber": 22,
+        "cueWord": "CHILD",
+        "answer": "CHILDREN",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 46,
+        "taskNumber": 22,
+        "cueWord": "NOT CAN",
+        "answer": "COULD NOT",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 25,
+        "taskNumber": 23,
+        "cueWord": "ONE",
+        "answer": "FIRST",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 67,
+        "taskNumber": 23,
+        "cueWord": "NOT WORK",
+        "answer": "DID NOT WORK",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 46,
+        "taskNumber": 24,
+        "cueWord": "HELP",
+        "answer": "WILL HELP",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 76,
+        "taskNumber": 24,
+        "cueWord": "HE",
+        "answer": "HIM",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      }
+    ]
+  },
+  {
+    "fullName": "Савхней София",
+    "groupName": "9.2",
+    "weakTopics": [
+      "пассивный залог / длительные формы / согласование времен",
+      "модальные формы / условные конструкции / формы глагола",
+      "степени сравнения / числительные / местоимения",
+      "местоимения / притяжательные формы / личные формы"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 47,
+        "taskNumber": 21,
+        "cueWord": "IMPRESS",
+        "answer": "WAS IMPRESSED",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 52,
+        "taskNumber": 21,
+        "cueWord": "SEE",
+        "answer": "HAVE NOT SEEN",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 9,
+        "taskNumber": 22,
+        "cueWord": "CAN",
+        "answer": "COULD",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 53,
+        "taskNumber": 22,
+        "cueWord": "CALL",
+        "answer": "WAS CALLED",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 12,
+        "taskNumber": 23,
+        "cueWord": "LEAVE",
+        "answer": "HAVE LEFT",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 66,
+        "taskNumber": 23,
+        "cueWord": "HAVE",
+        "answer": "HAD",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 28,
+        "taskNumber": 24,
+        "cueWord": "HAVE",
+        "answer": "HAD",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 64,
+        "taskNumber": 24,
+        "cueWord": "NOT MIND",
+        "answer": "DID NOT MIND",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      }
+    ]
+  },
+  {
+    "fullName": "Безбородкин Дмитрий (ИНФ)",
+    "groupName": "9.3",
+    "weakTopics": [
+      "видовременные формы / базовые формы глагола",
+      "степени сравнения / числительные / местоимения",
+      "пассивный залог / длительные формы / согласование времен",
+      "модальные формы / условные конструкции / формы глагола"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 21,
+        "taskNumber": 20,
+        "cueWord": "BE",
+        "answer": "WERE",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 45,
+        "taskNumber": 20,
+        "cueWord": "NOT UNDERSTAND",
+        "answer": "DID NOT UNDERSTAND",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 1,
+        "taskNumber": 21,
+        "cueWord": "SURF",
+        "answer": "WAS SURFING",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 72,
+        "taskNumber": 21,
+        "cueWord": "NEED",
+        "answer": "NEEDED",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 29,
+        "taskNumber": 22,
+        "cueWord": "CENTURY",
+        "answer": "CENTURIES",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 70,
+        "taskNumber": 22,
+        "cueWord": "PACK",
+        "answer": "WAS PACKED",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 1,
+        "taskNumber": 23,
+        "cueWord": "LOSE",
+        "answer": "HAVE LOST",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 3,
+        "taskNumber": 23,
+        "cueWord": "ONE",
+        "answer": "FIRST",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      }
+    ]
+  },
+  {
+    "fullName": "Корсуновская София(ГЕО)",
+    "groupName": "9.3",
+    "weakTopics": [
+      "видовременные формы / базовые формы глагола",
+      "множественное число / исключения / существительные",
+      "пассивный залог / длительные формы / согласование времен",
+      "модальные формы / условные конструкции / формы глагола"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 15,
+        "taskNumber": 20,
+        "cueWord": "FEEL",
+        "answer": "FELT",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 70,
+        "taskNumber": 20,
+        "cueWord": "ONE",
+        "answer": "FIRST",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 58,
+        "taskNumber": 21,
+        "cueWord": "BE",
+        "answer": "WAS",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 71,
+        "taskNumber": 21,
+        "cueWord": "ONE",
+        "answer": "FIRST",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 60,
+        "taskNumber": 22,
+        "cueWord": "DO",
+        "answer": "DID NOT DO",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 70,
+        "taskNumber": 22,
+        "cueWord": "PACK",
+        "answer": "WAS PACKED",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 18,
+        "taskNumber": 25,
+        "cueWord": "GIVE",
+        "answer": "GAVE",
+        "topic": "Грамматика: множественное число / исключения / существительные"
+      },
+      {
+        "variantNumber": 19,
+        "taskNumber": 25,
+        "cueWord": "BE",
+        "answer": "WERE",
+        "topic": "Грамматика: множественное число / исключения / существительные"
+      }
+    ]
+  },
+  {
+    "fullName": "Лущевич Ева (ЛИТ)",
+    "groupName": "9.3",
+    "weakTopics": [
+      "видовременные формы / базовые формы глагола",
+      "степени сравнения / числительные / местоимения",
+      "местоимения / притяжательные формы / личные формы",
+      "числительные / порядковые формы"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 18,
+        "taskNumber": 20,
+        "cueWord": "BE",
+        "answer": "WERE",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 39,
+        "taskNumber": 20,
+        "cueWord": "LEAVE",
+        "answer": "LEFT",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 47,
+        "taskNumber": 23,
+        "cueWord": "CHILD",
+        "answer": "CHILDREN",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 63,
+        "taskNumber": 23,
+        "cueWord": "BUY",
+        "answer": "HAD BOUGHT",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 43,
+        "taskNumber": 24,
+        "cueWord": "THEY",
+        "answer": "THEIR",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 47,
+        "taskNumber": 24,
+        "cueWord": "I",
+        "answer": "ME",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 65,
+        "taskNumber": 26,
+        "cueWord": "CALL",
+        "answer": "WILL CALL",
+        "topic": "Грамматика: словообразование числительных / порядковые формы"
+      },
+      {
+        "variantNumber": 69,
+        "taskNumber": 26,
+        "cueWord": "TAKE",
+        "answer": "HAD TAKEN",
+        "topic": "Грамматика: словообразование числительных / порядковые формы"
+      }
+    ]
+  },
+  {
+    "fullName": "Мыльникова Камилла (ОБЩ)",
+    "groupName": "9.3",
+    "weakTopics": [
+      "видовременные формы / базовые формы глагола",
+      "модальные формы / условные конструкции / формы глагола",
+      "местоимения / притяжательные формы / личные формы",
+      "степени сравнения / числительные / местоимения"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 58,
+        "taskNumber": 20,
+        "cueWord": "CHILD",
+        "answer": "CHILDREN",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 59,
+        "taskNumber": 20,
+        "cueWord": "CAN",
+        "answer": "COULD",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 58,
+        "taskNumber": 22,
+        "cueWord": "NOT WANT",
+        "answer": "DO NOT WANT",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 64,
+        "taskNumber": 22,
+        "cueWord": "KNOW",
+        "answer": "KNOWS",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 30,
+        "taskNumber": 23,
+        "cueWord": "BE",
+        "answer": "ARE",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 52,
+        "taskNumber": 23,
+        "cueWord": "HELP",
+        "answer": "WOULD HELP",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 54,
+        "taskNumber": 24,
+        "cueWord": "BRIGHT",
+        "answer": "BRIGHTEST",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 74,
+        "taskNumber": 24,
+        "cueWord": "READ",
+        "answer": "WAS READING",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      }
+    ]
+  },
+  {
+    "fullName": "Пыхтеева Варвара(ГЕО)",
+    "groupName": "9.3",
+    "weakTopics": [
+      "видовременные формы / базовые формы глагола",
+      "пассивный залог / длительные формы / согласование времен",
+      "степени сравнения / числительные / местоимения",
+      "местоимения / притяжательные формы / личные формы"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 49,
+        "taskNumber": 20,
+        "cueWord": "GOOD",
+        "answer": "BEST",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 50,
+        "taskNumber": 20,
+        "cueWord": "BE",
+        "answer": "WERE",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 55,
+        "taskNumber": 21,
+        "cueWord": "HAVE",
+        "answer": "HAD",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 60,
+        "taskNumber": 21,
+        "cueWord": "TWO",
+        "answer": "SECOND",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 36,
+        "taskNumber": 23,
+        "cueWord": "BE",
+        "answer": "WOULD BE",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 71,
+        "taskNumber": 23,
+        "cueWord": "WE",
+        "answer": "OUR",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 35,
+        "taskNumber": 24,
+        "cueWord": "LIFE",
+        "answer": "LIVES",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 49,
+        "taskNumber": 24,
+        "cueWord": "I",
+        "answer": "MINE",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      }
+    ]
+  },
+  {
+    "fullName": "Рубцова Екатерина(БИО)",
+    "groupName": "9.3",
+    "weakTopics": [
+      "степени сравнения / числительные / местоимения",
+      "множественное число / исключения / существительные",
+      "видовременные формы / базовые формы глагола",
+      "пассивный залог / длительные формы / согласование времен"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 33,
+        "taskNumber": 20,
+        "cueWord": "SHE",
+        "answer": "HER",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 73,
+        "taskNumber": 20,
+        "cueWord": "THIRTEEN",
+        "answer": "THIRTEENTH",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 29,
+        "taskNumber": 21,
+        "cueWord": "KNOW",
+        "answer": "KNEW",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 69,
+        "taskNumber": 21,
+        "cueWord": "BE",
+        "answer": "WAS",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 13,
+        "taskNumber": 23,
+        "cueWord": "NOT LISTEN",
+        "answer": "DID NOT LISTEN",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 38,
+        "taskNumber": 23,
+        "cueWord": "GOOD",
+        "answer": "BETTER",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 5,
+        "taskNumber": 25,
+        "cueWord": "COME",
+        "answer": "WILL COME",
+        "topic": "Грамматика: множественное число / исключения / существительные"
+      },
+      {
+        "variantNumber": 49,
+        "taskNumber": 25,
+        "cueWord": "MAKE",
+        "answer": "WAS MADE",
+        "topic": "Грамматика: множественное число / исключения / существительные"
+      }
+    ]
+  },
+  {
+    "fullName": "Фоменко Таисия(ИНФ)",
+    "groupName": "9.3",
+    "weakTopics": [
+      "модальные формы / условные конструкции / формы глагола",
+      "множественное число / исключения / существительные",
+      "видовременные формы / базовые формы глагола",
+      "пассивный залог / длительные формы / согласование времен"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 20,
+        "taskNumber": 20,
+        "cueWord": "BE",
+        "answer": "WAS",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 48,
+        "taskNumber": 20,
+        "cueWord": "CHOOSE",
+        "answer": "CHOSE",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 62,
+        "taskNumber": 21,
+        "cueWord": "NOT KNOW",
+        "answer": "DID NOT KNOW",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 66,
+        "taskNumber": 21,
+        "cueWord": "CLIMB",
+        "answer": "WAS CLIMBING",
+        "topic": "Грамматика: пассивный залог / длительные формы / согласование времен"
+      },
+      {
+        "variantNumber": 10,
+        "taskNumber": 22,
+        "cueWord": "WONDERFUL",
+        "answer": "MOST WONDERFUL",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 70,
+        "taskNumber": 22,
+        "cueWord": "PACK",
+        "answer": "WAS PACKED",
+        "topic": "Грамматика: модальные формы / условные конструкции / формы глагола"
+      },
+      {
+        "variantNumber": 6,
+        "taskNumber": 25,
+        "cueWord": "WE",
+        "answer": "OUR",
+        "topic": "Грамматика: множественное число / исключения / существительные"
+      },
+      {
+        "variantNumber": 39,
+        "taskNumber": 25,
+        "cueWord": "BUY",
+        "answer": "HAVE BOUGHT",
+        "topic": "Грамматика: множественное число / исключения / существительные"
+      }
+    ]
+  },
+  {
+    "fullName": "Целух Олег (ОБЩ)",
+    "groupName": "9.3",
+    "weakTopics": [
+      "видовременные формы / базовые формы глагола",
+      "степени сравнения / числительные / местоимения",
+      "местоимения / притяжательные формы / личные формы",
+      "множественное число / исключения / существительные"
+    ],
+    "tasks": [
+      {
+        "variantNumber": 9,
+        "taskNumber": 20,
+        "cueWord": "CHILD",
+        "answer": "CHILDREN",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 38,
+        "taskNumber": 20,
+        "cueWord": "NOT SHARE",
+        "answer": "DID NOT SHARE",
+        "topic": "Грамматика: видовременные формы / базовые формы глагола"
+      },
+      {
+        "variantNumber": 8,
+        "taskNumber": 23,
+        "cueWord": "NOT CAN",
+        "answer": "COULD NOT",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 26,
+        "taskNumber": 23,
+        "cueWord": "SHE",
+        "answer": "HER",
+        "topic": "Грамматика: степени сравнения / числительные / местоимения"
+      },
+      {
+        "variantNumber": 30,
+        "taskNumber": 24,
+        "cueWord": "CAN",
+        "answer": "COULD",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 40,
+        "taskNumber": 24,
+        "cueWord": "THEY",
+        "answer": "THEM",
+        "topic": "Грамматика: местоимения / притяжательные формы / личные формы"
+      },
+      {
+        "variantNumber": 7,
+        "taskNumber": 25,
+        "cueWord": "MAN",
+        "answer": "MEN",
+        "topic": "Грамматика: множественное число / исключения / существительные"
+      },
+      {
+        "variantNumber": 35,
+        "taskNumber": 25,
+        "cueWord": "GIVE",
+        "answer": "GAVE",
+        "topic": "Грамматика: множественное число / исключения / существительные"
+      }
+    ]
+  }
+]

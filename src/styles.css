@@ -85,6 +85,14 @@ input { font: inherit; }
 .sec-table th { background: #2d3748; color: white; padding: 8px 12px; text-align: left; font-weight: 700; }
 .sec-table td { padding: 7px 12px; border-bottom: 1px solid #edf2f7; }
 .sec-td { font-weight: 600; }
+.boost-title { color: #702459; }
+.boost-tbl-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid #f3c4dd; background: #fff7fb; }
+.boost-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 460px; }
+.boost-table th { background: #d53f8c; color: white; padding: 8px 12px; text-align: left; font-weight: 700; }
+.boost-table td { padding: 8px 12px; border-bottom: 1px solid #f8d7e8; }
+.boost-table tbody tr:nth-child(even) td { background: #fff0f7; }
+.boost-name { font-weight: 700; color: #97266d; white-space: nowrap; }
+.boost-percent { font-weight: 800; color: #b83280; }
 .bar-bg { background: #e2e8f0; border-radius: 20px; height: 10px; width: 130px; overflow: hidden; display: inline-block; vertical-align: middle; }
 .bar-fill { height: 100%; border-radius: 20px; }
 

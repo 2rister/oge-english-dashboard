@@ -85,7 +85,7 @@ function renderGroupSummary(groups) {
 function renderExportNav(groups) {
   if (groups.length === 0) return "";
 
-  return `<nav class="export-nav">
+  return `<nav class="export-nav nav-visible">
     ${groups
       .map(
         (group) => `<div class="export-nav-group">
@@ -109,7 +109,7 @@ function renderReport(report) {
     <div class="report-head" style="background:linear-gradient(135deg,${escapeHtml(report.colorA)},${escapeHtml(report.colorB)})">
       <div>
         <h2>${escapeHtml(report.fullName)}</h2>
-        <p>Английский язык · ОГЭ · 9 класс · Группа ${escapeHtml(report.groupName)}</p>
+        <p>Группа ${escapeHtml(report.groupName)}</p>
       </div>
       <div class="report-score">
         <strong>${report.latestScore}/53 · ${report.latestPercent.toFixed(1)}%</strong>
@@ -177,6 +177,31 @@ function renderReport(report) {
           </table>
         </div>
       </section>
+      ${
+        report.boosts?.length
+          ? `<section class="pdf-block">
+        <div class="section-title boost-title" style="border-left-color:#d53f8c">Boost</div>
+        <div class="table-wrap boost-wrap">
+          <table class="boost-table">
+            <thead>
+              <tr><th>Название</th><th>Темы отработки</th><th>% правильных ответов</th></tr>
+            </thead>
+            <tbody>
+              ${report.boosts
+                .map(
+                  (boost) => `<tr>
+                    <td class="boost-name">${escapeHtml(boost.title)}</td>
+                    <td>${escapeHtml(boost.topics)}</td>
+                    <td class="boost-percent">${Number(boost.percentCorrect).toFixed(1)}%</td>
+                  </tr>`,
+                )
+                .join("")}
+            </tbody>
+          </table>
+        </div>
+      </section>`
+          : ""
+      }
       <section class="pdf-block">
         <div class="section-title" style="border-left-color:${escapeHtml(report.colorB)}">Выводы</div>
         <div class="rec-grid">
@@ -270,8 +295,8 @@ html{scroll-behavior:smooth}
 body{margin:0;font-family:"Segoe UI",Arial,sans-serif;color:#1a202c;background:#fff}
 .page-shell{max-width:1180px;margin:0 auto;padding:24px 16px 40px}
 .export-nav{position:sticky;top:0;z-index:20;display:grid;gap:10px;margin-bottom:18px;padding:14px 16px;border-radius:18px;background:rgba(19,32,51,.94);backdrop-filter:blur(10px);box-shadow:0 12px 30px rgba(15,23,42,.18);transition:transform .22s ease,opacity .22s ease;transform:translateY(0);opacity:1}
-.export-nav.nav-hidden{transform:translateY(calc(-100% - 12px));opacity:0;pointer-events:none}
-.export-nav.nav-visible{transform:translateY(0);opacity:1}
+.export-nav.nav-visible{transform:translateY(0);opacity:1;pointer-events:auto}
+.export-nav.nav-hidden{transform:translateY(calc(-100% - 6px));opacity:.02;pointer-events:none}
 .export-nav-group{display:grid;gap:6px}
 .export-nav-label{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#93c5fd}
 .export-nav-links{display:flex;flex-wrap:wrap;gap:8px;min-width:0}
@@ -328,6 +353,14 @@ table{width:100%;border-collapse:collapse}
 .section-table{min-width:460px;font-size:13px}
 .section-table th{background:#2d3748;color:white;padding:9px 12px;text-align:left}
 .section-table td{padding:8px 12px;border-bottom:1px solid #edf2f7}
+.boost-title{color:#702459}
+.boost-wrap{border-color:#f3c4dd;background:#fff7fb}
+.boost-table{min-width:460px;font-size:13px}
+.boost-table th{background:#d53f8c;color:white;padding:9px 12px;text-align:left}
+.boost-table td{padding:8px 12px;border-bottom:1px solid #f8d7e8}
+.boost-table tbody tr:nth-child(even) td{background:#fff0f7}
+.boost-name{font-weight:700;color:#97266d;white-space:nowrap}
+.boost-percent{font-weight:800;color:#b83280}
 .cell-strong{font-weight:700}
 .badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:800}
 .bg{background:#c6f6d5;color:#1a4731}.bb{background:#bee3f8;color:#1a365d}.bw{background:#fefcbf;color:#7b6a00}.bd{background:#fed7d7;color:#9b2c2c}
@@ -346,8 +379,8 @@ table{width:100%;border-collapse:collapse}
 .no-data{padding:18px;text-align:center;color:#94a3b8}
 @media (max-width:1100px){.page-shell{padding:20px 14px 34px}.group-summary{grid-template-columns:repeat(2,minmax(0,1fr))}.metric-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.chart-grid{grid-template-columns:1fr}}
 @media (max-width:900px){.export-head{padding:20px;display:grid;gap:16px}.meta-box{min-width:0}.report-head{padding:20px;display:grid;gap:10px}.report-score{text-align:left}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.chart-grid{grid-template-columns:1fr}.group-summary{grid-template-columns:1fr}.rec-grid{grid-template-columns:1fr}.bar-bg{width:100%;max-width:180px}}
-@media (max-width:768px){.page-shell{padding:14px 12px 28px}.export-nav{padding:12px;top:0;border-radius:14px;gap:8px}.export-nav-group{gap:5px}.export-nav-label{font-size:10px}.export-nav-links{display:flex;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;padding-bottom:4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.export-nav-links::-webkit-scrollbar{display:none}.export-nav-links a{font-size:11px;padding:5px 9px;white-space:nowrap;flex:0 0 auto}.export-head{padding:18px;border-radius:18px;display:grid}.export-head h1{font-size:24px}.meta{font-size:13px}.group-card{padding:14px 15px;border-radius:16px}.report-card{margin-top:18px;border-radius:16px}.report-head{padding:18px;display:grid}.report-head h2{font-size:21px}.report-body{padding:16px 14px;gap:14px}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.metric-card{padding:12px 8px}.metric-value{font-size:18px}.section-title{font-size:13px}.panel{padding:12px}.month-chart{height:104px}.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}.result-table{min-width:520px}.section-table{min-width:420px}.rec-grid{grid-template-columns:1fr}.rec{padding:12px 14px}.rec h4{font-size:12px}}
-@media (max-width:520px){.page-shell{padding:12px 10px 24px}.export-nav{margin-bottom:14px}.export-head h1{font-size:22px}.report-head h2{font-size:19px}.metric-grid{grid-template-columns:1fr}.result-table{min-width:500px}.section-table{min-width:380px}.month-label{font-size:8px}.rec li{font-size:11px}}
+@media (max-width:768px){.page-shell{padding:14px 12px 28px}.export-nav{padding:12px;top:0;border-radius:14px;gap:8px}.export-nav-group{gap:5px}.export-nav-label{font-size:10px}.export-nav-links{display:flex;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;padding-bottom:4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.export-nav-links::-webkit-scrollbar{display:none}.export-nav-links a{font-size:11px;padding:5px 9px;white-space:nowrap;flex:0 0 auto}.export-head{padding:18px;border-radius:18px;display:grid}.export-head h1{font-size:24px}.meta{font-size:13px}.group-card{padding:14px 15px;border-radius:16px}.report-card{margin-top:18px;border-radius:16px}.report-head{padding:18px;display:grid}.report-head h2{font-size:21px}.report-body{padding:16px 14px;gap:14px}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.metric-card{padding:12px 8px}.metric-value{font-size:18px}.section-title{font-size:13px}.panel{padding:12px}.month-chart{height:104px}.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}.result-table{min-width:520px}.section-table{min-width:420px}.boost-table{min-width:420px}.rec-grid{grid-template-columns:1fr}.rec{padding:12px 14px}.rec h4{font-size:12px}}
+@media (max-width:520px){.page-shell{padding:12px 10px 24px}.export-nav{margin-bottom:14px}.export-head h1{font-size:22px}.report-head h2{font-size:19px}.metric-grid{grid-template-columns:1fr}.result-table{min-width:500px}.section-table{min-width:380px}.boost-table{min-width:380px}.month-label{font-size:8px}.rec li{font-size:11px}}
 @page{size:A4;margin:10mm}`;
 }
 
